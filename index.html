@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQquery Plugin</title>
+</head>
+<body>
+
+	<div id="divId_1" class="divClass_1"></div>
+	<div id="divId_2" class="divClass_2"></div>
+	<div id="divId_3" class="divClass_3"></div>
+
+	<script src='assets/js/jquery-2.1.3.min.js'></script>
+	<script src='assets/js/jqueryPlugin.js'></script>
+
+	<script type="text/javascript">
+
+		if ( typeof PluginName != "undefined" ) {
+			loadjqueryPlugin();
+		}else{
+			$.when(
+				$.getScript('assets/js/jqueryPlugin.js')
+			).done(loadjqueryPlugin);
+		}
+
+		function loadjqueryPlugin() { 
+
+			var config = {
+				'key':'value'
+			};
+
+			$('#divId_1').PluginName({'key':'value'});
+
+			var response = $('#divId_2').PluginName('method1');
+			console.log(response);
+			
+			var response = $('#divId_3').PluginName('method2', 'params');
+			console.log(response);
+		}
+
+	</script>
+
+</body>
+</html>
